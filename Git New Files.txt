@@ -1,0 +1,18 @@
+새 파일(new file)
+새 파일(new file)은 프로젝트 폴더에 새로 생성하거나 복사해 넣은 파일로, 아직 Git에게 추적(tracked)하라고 알리지 않은 상태입니다.​
+핵심 개념
+새 파일은 텍스트 에디터로 만든 뒤 아직 Git에 추가하지 않은(=추적하지 않는) 파일입니다.​
+ls 명령어로 폴더의 파일 목록을 확인할 수 있습니다.​
+git status 명령어로 어떤 파일을 Git이 추적하는지(tracked), 하지 않는지(untracked) 확인할 수 있습니다.​
+트래킹(tracked)과 비트래킹(untracked) 파일 이해
+untracked 파일: Git 저장소에 추가되지 않아서 Git이 관리하지 않는 파일입니다. 커밋·변경 이력에 포함되지 않고, 원한다면 .gitignore에 등록해 관리 대상에서 제외시킬 수 있습니다.​
+tracked 파일: Git이 이미 추가(git add), 커밋(git commit)해서 관리하고 있는 파일입니다. 이 파일의 변경 내용은 커밋 때마다 기록되고, 이전 버전으로 복구할 수도 있습니다.​
+즉, 새 파일은 처음엔 비트래킹(untracked) 상태이며, git add로 Git에 알려야 비로소 트래킹(tracked) 상태로 바뀝니다.​
+ls 명령시 폴더안의 파일들 나옴
+git status 명령시
+On branch master
+No commits yet
+Untracked files:
+  (use "git add ..." to include in what will be committed)
+    index.html
+nothing added to commit but untracked files present (use "git add" to track)  

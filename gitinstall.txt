@@ -1,0 +1,167 @@
+Git 설치 방법
+git-scm.com 에서 Git을 무료로 다운로드할 수 있습니다 .
+
+Windows: 
+설치 프로그램을 다운로드하여 실행합니다.
+권장 설정은  "다음"을 클릭합니다.
+그러면 Git과 Git Bash가 설치됩니다
+.
+macOS: 
+Homebrew를 사용하는 경우, 터미널을 열고 brew install git 를 입력하세요. 
+또는 .dmg 파일을 다운로드하고 Git을 응용 프로그램 폴더로 드래그하세요.
+
+Linux: 
+터미널을 열고 패키지 관리자를 사용하세요.
+예를 들어, Ubuntu의 경우:sudo apt-get install git
+
+설치 후 터미널이나 명령 프롬프트에서 Git을 사용할 수 있습니다.
+
+Git Bash
+Git Bash는 Git 명령을 사용할 수 있는 Windows용 터미널입니다.
+Git을 설치한 후 시작 메뉴에서 Git Bash를 찾을 수 있습니다.
+Git Bash는 명령 프롬프트처럼 사용할 수 있지만, 추가적인 Unix 명령어(예: ls및 pwd)를 사용할 수 있습니다.
+
+git 명령
+ls 
+현재 폴더에 있는 파일을 나열
+
+Git 버전 확인
+git --version
+
+기본 편집기
+Git을 설치할 때, 기본 텍스트 편집기﻿를 선택하라는 메시지가 뜹니다. 이 편집기는 커밋 메시지와 같은 내용을 작성할 때 자동으로 
+열리는 프로그램입니다. 예를 들어, Vim, Visual Studio Code, Sublime Text, Notepad++ 등이 있으며, 사용자가 편리한 편집기를 
+골라 설정할 수 있습니다. 기본적으로는 시스템에 설정된 편집기가 사용되지만, 설치 과정 중 또는 설치 후에도 원하는 편집기로 변경할 수 있습니다.
+
+Set VS Code as Default Editor
+git config --global core.editor "code --wait"
+명령어 git config --global core.editor "code --wait"﻿는 Visual Studio Code를 Git의 기본 텍스트 편집기로 설정하는 것입니다. 
+여기서 중요한 부분은 "code"가 VS Code를 실행하는 명령어이고, "--wait" 옵션은 Git이 커밋 메시지를 작성할 때 VS Code가 닫힐 때까지 
+기다리도록 하는 역할을 합니다. 즉, 커밋 메시지 작성 중에 편집기 창을 닫을 때까지 Git 명령어가 멈춰 있고, 편집기 종료 후에야 커밋이 완료됩니다
+. 이 설정으로 편리하게 VS Code를 이용하여 커밋 메시지 작성이나 기타 Git 관련 텍스트 편집 작업을 할 수 있습니다.
+
+Set Notepad as Default Editor
+git config --global core.editor "notepad"
+Notepad는 기본적으로 편집기 창이 닫힐 때까지 해당 프로세스가 기다려서 Git이 종료 신호를 받을 수 있게 동작하므로, 별도로 --wait﻿ 옵션을 지정하지 않아도 됩니다. 
+반대로, Visual Studio Code 같은 일부 편집기는 별도로 옵션을 주지 않으면 Git이 편집기가 닫힐 때까지 기다리지 않기 때문에 --wait﻿ 옵션이 필요합니다. 
+따라서 Notepad는 독립 실행형이며 종료 시점을 기준으로 Git 명령어가 계속 진행되도록 기본 동작이 설정되어 있어 --wait﻿ 옵션 없이도 정상 작동합니다
+
+PATH 환경변수
+﻿PATH 환경변수에 Git을 추가하면, 어떤 터미널 창에서나 Git 명령어를 사용할 수 있게 됩니다. 설치 중에 Git을 PATH에 추가하는 옵션을 선택하는 것이 
+대부분 사용자에게 강력히 권장됩니다. 만약 이 옵션을 건너뛰면, Windows에서는 Git Bash에서만, macOS나 Linux에서는 Terminal에서만 
+Git을 사용할 수 있게 되어 다른 터미널이나 명령 프롬프트에서는 Git 명령어를 인식하지 못합니다. 
+따라서 Git을 편리하게 다양한 환경에서 사용하려면 PATH에 추가하는 것이 중요합니다.
+
+Check if Git is in PATH
+git --version  -->CMD터미널에서도 동작해야함
+
+Git을 설치한 후 PATH에 추가하는 방법은 다음과 같습니다.
+
+Windows:
+설치 시 PATH 추가 옵션을 놓쳤다면, 시작 메뉴에서 환경 변수﻿를 검색하여 엽니다.
+환경 변수﻿ 버튼을 클릭한 후, 시스템 변수﻿에서 Path﻿ 변수를 찾아 편집을 클릭합니다.
+편집창에서 새로 만들기﻿를 선택하고 Git의 bin﻿ 및 cmd﻿ 폴더 경로를 추가합니다. 
+예: C:\Program Files\Git\bin﻿ 와 C:\Program Files\Git\cmd﻿.
+확인을 눌러 저장하고 터미널을 재시작합니다.
+
+macOS:
+Homebrew로 설치했다면 보통 PATH가 자동 설정됩니다.
+직접 설정하려면 터미널에서 ~/.zshrc﻿ 또는 ~/.bash_profile﻿ 파일에 아래 줄을 추가합니다.
+bash
+export PATH="/usr/local/bin:$PATH"
+파일 저장 후,
+bash
+source ~/.zshrc
+또는
+bash
+source ~/.bash_profile
+명령어를 실행합니다.
+
+Linux:
+대부분 패키지 관리자가 PATH를 자동 설정합니다.
+그렇지 않으면 ~/.bashrc﻿ 또는 ~/.profile﻿에 아래 줄을 추가합니다.
+bash
+export PATH="/usr/bin:$PATH"
+저장 후,
+bash
+source ~/.bashrc
+또는
+bash
+source ~/.profile
+명령어를 실행합니다.
+설정 후 새로운 터미널을 열고
+bash
+git --version
+명령어로 제대로 적용됐는지 확인할 수 있습니다
+
+line endings
+Git은 텍스트 파일의 행 끝(line endings)을 자동으로 변환할 수 있습니다. 
+Windows에서는 일반적으로 "Checkout Windows-style, commit Unix-style line endings"﻿ 옵션을 선택하는 것이 좋습니다. 
+이 설정은 파일을 체크아웃할 때는 Windows 스타일의 CRLF(Carriage Return + Line Feed)로 변환하고, 
+커밋할 때는 Unix 스타일의 LF(Line Feed)로 변환합니다. 이렇게 함으로써 서로 다른 운영체제를 사용하는 사람들이 
+코드를 공유할 때 발생할 수 있는 행 끝 문제를 예방할 수 있습니다. 즉, Windows 사용자들은 편리하게 CRLF 형식으로 작업하면서도
+ 저장소에는 일관된 LF 형식이 유지되어 호환성을 보장합니다.​
+
+checkout
+체크아웃﻿은 Git에서 특정 브랜치, 커밋 또는 파일의 상태로 작업 디렉토리를 전환하는 작업입니다. 
+예를 들어, git checkout 브랜치명﻿ 명령은 지정한 브랜치로 이동하여 해당 브랜치의 파일 상태로 작업 디렉토리를 업데이트합니다. 
+이 과정에서 현재 작업 중인 변경 사항이 덮어써질 수 있으므로 주의가 필요합니다. 
+또, git checkout 커밋ID﻿는 특정 시점의 커밋 상태로 돌아가 작업할 수 있게 하지만, 'detached HEAD' 상태가 되어 일반 브랜치 작업과는 다르게 동작합니다. 
+파일 단위로는 git checkout -- 파일명﻿을 사용해 최근 커밋 상태로 작업 중인 파일을 되돌릴 수 있습니다. 체크아웃은 브랜치 전환, 특정 커밋 확인, 
+파일 상태 복원 등에 활용되며, Git 작업흐름에서 매우 중요한 역할을 합니다.
+
+Git 업데이트 및 삭제 방법
+업데이트:
+최신 Git 버전을 다운로드하여 설치 프로그램을 실행하거나 패키지 관리자를 통해 업그레이드할 수 있습니다.
+예를 들어 macOS에서는 Homebrew로 brew upgrade git, 
+Linux에서는 sudo apt-get upgrade git 명령어를 사용합니다..
+window에서는 
+git update-git-for-windows
+이 명령어를 실행하면 최신 버전으로 업데이트할 것인지 묻는 메시지가 나오고, 'y'를 입력하면 설치 프로그램이 실행되어 자동으로 Git을 최신 버전으로 갱신합니다
+Git을 최신 상태로 유지하면 새로운 기능과 보안 패치가 적용되어 안전하고 효율적으로 사용할 수 있습니다
+
+삭제:
+Windows에서는 제어판﻿의 프로그램 추가/삭제﻿에서 Git을 삭제합니다.
+macOS와 Linux에서는 사용하는 패키지 관리자(예: Homebrew, apt-get)를 통해 제거할 수 있습니다.
+이렇게 Git을 관리하면 최신 기능을 활용하고 보안 위험을 줄일 수 있습니다.​
+
+설치시 문제점 해결 방법
+Windows에서 "git is not recognized as an internal or external command" 오류가 발생하는 경우, 이는 Git이 시스템의 PATH 환경변수﻿에 등록되어 있지 않기 때문입니다. 해결 방법은 다음과 같습니다:
+Git이 설치되어 있는지 확인하고, 설치 후 터미널을 재시작합니다.
+필요하다면 Git의 bin 폴더 경로﻿ (예: C:\Program Files\Git\bin﻿)를 PATH에 수동으로 추가합니다.
+시작 메뉴에서 환경 변수﻿를 검색하고, 환경 변수 편집﻿을 엽니다.
+시스템 변수﻿에서 Path﻿를 선택하고 편집﻿을 클릭합니다.
+새로 만들기﻿를 클릭하여 Git bin 폴더 경로﻿를 추가한 뒤 저장합니다.
+변경 후에도 문제가 지속된다면 컴퓨터를 재부팅합니다.
+추가로 권한 문제는 Windows에서는 관리자 권한﻿으로 Git Bash 또는 터미널을 실행하고, macOS/Linux에서는 필요 시 sudo﻿ 명령어를 사용해 접근 권한 문제를 해결할 수 있습니다.
+SSL이나 HTTPS 오류가 발생할 경우 인터넷 연결 상태를 확인하고 Git 버전을 최신 상태로 유지하는 것이 중요하며, Git 버전이 잘못되었으면 아래 명령어로 확인하고 
+필요 시 최신 버전을 다운로드 닷컴(https://git-scm.com/﻿)에서 수동 설치합니다.
+
+git username,email 조회
+git config user.name
+git config user.email
+git config --global user.name
+git config --global user.email
+
+Git에서 global﻿ 옵션은 현재 사용자의 전체 시스템(전역)에 설정을 적용한다는 의미입니다.
+구체적으로, git config --global﻿ 명령어로 설정하는 값들은 해당 사용자의 모든 Git 저장소에 공통으로 적용됩니다. 이 설정들은 보통 ~/.gitconfig﻿ 파일에 저장됩니다. 
+반면, --local﻿ 옵션을 사용하면 특정 저장소에만 설정이 적용되며, 그 설정은 저장소 내의 .git/config﻿ 파일에 저장됩니다.
+따라서 global﻿ 설정은 사용자의 개인 컴퓨터 내 모든 저장소에서 기본으로 사용되고, 개별 저장소별 설정(local)이 있으면 그 설정이 우선시됩니다.
+요약하면, global﻿은 "전 사용자 저장소에 적용되는 설정"을 뜻하며, 한 번 설정하면 해당 컴퓨터 내 모든 Git 프로젝트에 영향이 있습니다
+
+전역 설정 파일(global config):
+Linux/macOS: 사용자 홈 디렉토리의 ~/.gitconfig﻿
+Windows: 사용자 프로필 디렉토리의 C:\Users<사용자이름>.gitconfig﻿
+지역 설정 파일(local config, 저장소별 설정):
+Git 저장소 루트 폴더 내의 .git/config﻿
+전역 설정은 사용자의 모든 Git 저장소에서 공통으로 적용되며, 지역 설정은 특정 저장소에만 적용됩니다. 동일한 설정이 있을 때는 지역(local) 설정이 전역(global) 설정을 덮어씁니다
+루트 폴더 경로를 확인하는 명령어는 다음과 같습니다:
+text
+git rev-parse --show-toplevel
+
+
+
+
+
+
+

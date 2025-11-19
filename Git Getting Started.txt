@@ -1,0 +1,42 @@
+Git Getting Started
+
+주요 단계
+
+프로젝트 폴더 만들기
+폴더로 이동  
+--> terminal :  cd C:\hyun\work_git      cd /c/hyun/work_git
+-->bash git :  cd /c/hyun/work_git
+Git 저장소 초기화
+
+Git 폴더 생성
+mkdir myproject
+cd myproject
+
+Windows를 사용하는 경우 폴더에 대고 우클릭하면  컨텍스트메뉴에서 직접 Git Bash를 열 수 있습니다.
+
+Git 초기화
+이제 Git를 적용할 폴더에 있으므로 해당 폴더에서 Git를 초기화할 수 있습니다.
+git init
+출력 : Initialized empty Git repository in C:/hyun/work_git/.git/
+첫 번째 Git 저장소를 만들었습니다!
+
+저장소(repository)란 무엇인가요?
+Git 저장소 는 Git이 변경 사항을 추적하는 폴더입니다.
+저장소는 프로젝트의 모든 기록과 버전을 저장합니다.
+
+git init 명령어 실행
+git init 명령어를 실행하면, Git이 현재 디렉터리 안에 숨김 폴더인 .git 폴더를 생성합니다.
+이 .git 폴더는 Git이 프로젝트 버전 관리에 필요한 모든 정보를 저장하는 곳으로, 다음과 같은 데이터가 들어 있습니다:
+커밋 기록(history) — 파일 변경 이력과 각 시점의 스냅샷 정보
+브랜치 정보(branches) — 현재 작업 중인 브랜치 및 다른 브랜치의 포인터
+스테이징 영역(index) — 커밋 전에 어떤 변경사항을 포함할지 임시로 저장
+설정 파일(config) — 사용자 정보나 리포지토리 설정 값
+즉, git init는 해당 디렉터리를 Git 저장소로 초기화하여 버전 관리가 가능하게 만드는 과정입니다.
+이후부터는 git add, git commit, git branch 등의 명령어를 사용할 수 있습니다.
+ls -a 로 보면 .git폴더가 생긴것이 보임(윈도우는 explore에서 모든 폴더가 보이도록 체크해줘야 한다,숨겨진 파일,확장 보기 등을 처리하는 곳에서 처리)
+
+문제 해결
+git: 명령을 찾을 수 없습니다.
+해결 방법: Git이 설치되어 있고 PATH에 추가되어 있는지 확인하세요. 필요한 경우 터미널을 다시 시작하세요.
+권한이 거부되었습니다.
+해결 방법: 필요한 경우 관리자 권한으로 터미널을 실행해 보세요(Windows인 경우). 또는 macOS/Linux인 경우 sudo 사용하세요.
