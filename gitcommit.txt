@@ -1,0 +1,64 @@
+/c/hyun/work_git
+커밋이란 무엇인가?
+커밋 은 프로젝트의 저장 지점과 같습니다.
+이 기능은 특정 시점의 파일 스냅샷을 기록하고, 변경 사항을 설명하는 메시지를 표시합니다.
+필요한 경우 언제든지 이전 커밋으로 돌아갈 수 있습니다.
+커밋을 위한 몇 가지 주요 명령은 다음과 같습니다.
+git commit -m "message"- 메시지와 함께 단계적 변경 사항 커밋
+git commit -a -m "message"- 추적된 모든 변경 사항 커밋(스테이징 건너뛰기)
+git log- 커밋 내역 보기
+
+Git Commit with Message (-m) 설명
+git commit -m "message" 명령어는 스테이징(staging)된 변경사항을 저장소에 저장하는 가장 기본적인 방법입니다. 
+여기서 -m 플래그는 커밋 메시지를 인라인으로 전달하며, 따옴표 안의 텍스트가 변경사항을 설명하는 메시지가 됩니다.​
+
+기본 구문
+git commit -m "your commit message"   # "your commit message"가 커밋메세지임
+
+Git 파일 상태는 세 가지로 나뉩니다: Modified(수정됨), Staged(스테이징됨), **Committed(커밋됨)**입니다. 
+git commit -m은 마지막 단계로, 스테이징된 파일들을 최종 저장합니다. 
+먼저 git add로 파일을 스테이징 영역에 추가한 후, git commit -m으로 커밋하는 방식입니다.​
+
+좋은 커밋 메시지 작성 법칙
+1. 50/72 규칙
+제목은 50자 이내, 상세 설명은 72자 이내로 제한하는 것이 권장
+2. 명령형 현재형 사용
+메시지를 "~한다"는 의미의 명령형으로 작성합니다
+
+Git Commit All Changes Without Staging (-a) 설명
+git commit -a 플래그는 이미 추적 중인 파일의 모든 변경사항을 자동으로 스테이징하고 커밋합니다. 
+이는 git add 단계를 건너뛸 수 있게 해주지만, 새로운 파일(untracked files)은 포함되지 않습니다.
+git commit -a -m "Commit message"
+
+Tracked (Modified)	이전에 커밋된 파일이 수정됨	✅ 포함됨
+Tracked (Deleted)	이전에 커밋된 파일이 삭제됨	✅ 포함됨
+Untracked (New)	처음 생성된 파일	❌ 포함 안 됨
+Staged	git add로 스테이징된 파일	✅ 포함됨
+
+What Happens if You Try to Commit a New File with -a?
+결과: 커밋 실패
+새로운 파일을 -a 플래그로 커밋하려고 하면 실패합니다. Git은 untracked 파일을 무시하고 커밋하지 않습니다.
+
+Write Multi-line Commit Messages 설명
+기본 개념
+git commit 명령어를 -m 플래그 없이 실행하면, 기본 텍스트 에디터가 자동으로 열려서 상세하고 구조화된 커밋 메시지를 작성할 수 있습니다. 
+이는 한 줄 메시지보다 더 자세하고 전문적인 커밋 히스토리를 만들 수 있게 해줍니다.​
+기본 구문
+git commit
+
+git commit --allow-empty -m "Your commit message"
+빈 커밋(empty commit)**은 파일 변경 없이 커밋을 생성합니다
+
+git commit --no-edit
+-no-edit**는 편집기를 열지 않고 이전 커밋(HEAD)의 메시지를 그대로 재사용합니다. 주로 --amend와 함께 사용됩니다.​
+
+git commit --amend --no-edit
+가장 유용한 조합입니다. 이 명령어는:
+마지막 커밋을 수정
+새로운 파일/변경사항을 추가
+커밋 메시지는 그대로 유지 (편집기 열리지 않음)
+
+View Commit History (git log)
+For a shorter view, use git log --oneline:
+To see which files changed in each commit, use git log --stat
+
