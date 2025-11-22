@@ -1,3 +1,11 @@
+요약 순서:
+git init (딱 한 번)
+git add . (변경 시마다)
+git commit -m "메시지" (변경 시마다)
+git remote add origin URL (딱 한 번)
+git push -u origin main (변경 후 첫 푸시)
+git push (그 이후)
+
 Git Tagging
 tagging용 주요 명령어
 git tag <tagname> - Create a lightweight tag
